@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #002339;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.container {
+  max-width: 110rem;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .heading-primary {
+  font-size: 4.8rem;
+  margin-bottom: 4.8rem;
+
+  span {
+    color: #019f55;
+    padding-bottom: 1.2rem;
+    border-bottom: 4px solid #019f55;
+  }
+}
+
+.container input {
+  margin-bottom: 3.2rem;
+  width: 50%;
+  height: 10%;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.container .lucide-copy {
+  position: absolute;
+  left: 46%;
+  top: 51%;
+  width: 3rem;
+  transform: translate(50%, 50%);
+  color: #019f55;
+  cursor: pointer;
+}
+
+.container .btn {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #019f55;
+  padding: 2rem 1.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
