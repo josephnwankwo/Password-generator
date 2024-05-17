@@ -35,21 +35,24 @@ body {
   }
 }
 
-.container input {
-  margin-bottom: 3.2rem;
+form {
   width: 50%;
-  height: 10%;
-  border-radius: 0.5rem;
-  font-size: 2rem;
+  background-color: #fff;
+  margin-bottom: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 2rem;
 }
 
-.container .lucide-copy {
-  position: absolute;
-  left: 46%;
-  top: 51%;
-  width: 3rem;
-  transform: translate(50%, 50%);
+.container form input {
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+}
+
+.container form .lucide-copy {
   color: #019f55;
   cursor: pointer;
 }
