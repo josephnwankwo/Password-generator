@@ -35,7 +35,7 @@ body {
   }
 }
 
-form {
+.password-wrapper {
   width: 50%;
   background-color: #fff;
   margin-bottom: 3.2rem;
@@ -45,14 +45,14 @@ form {
   padding: 2rem;
 }
 
-.container form input {
+.container .password-wrapper input {
   border-radius: 0.5rem;
   font-size: 2rem;
   outline: none;
   border: none;
 }
 
-.container form .lucide-copy {
+.container .password-wrapper .lucide-copy {
   color: #019f55;
   cursor: pointer;
 }
