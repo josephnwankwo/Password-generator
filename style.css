@@ -71,3 +71,43 @@ body {
   align-items: center;
   gap: 1rem;
 }
+
+.container #Password-length {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2rem;
+}
+
+.container #uppercase-letters {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2rem;
+}
+
+.container #lowercase-letters {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2rem;
+}
+
+.container #digits {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2rem;
+}
+
+.container #specials {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  margin-bottom: 3.2rem;
+  font-size: 2rem;
+}
