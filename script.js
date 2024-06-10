@@ -1,7 +1,7 @@
 "use strict";
-const generatePassword = document.getElementById("btn");
-const copyText = document.getElementById("copytext");
-const password = document.getElementById("password");
+const generatePasswordBtn = document.getElementById("btn");
+const copyTextBtn = document.getElementById("copytext");
+const passwordInput = document.getElementById("password");
 const lengthOfPassword = document.getElementById("passwordLength");
 
 // Checkbox
@@ -11,55 +11,67 @@ const selectDigits = document.getElementById("checkbox-digits");
 const selectSpecials = document.getElementById("checkbox-specials");
 
 // Generate password when the user clicks on generatePassword
-const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-const digits = "0123456789";
-const specials = "~!@#$%^&*()_+:|<>?";
-const length = 10;
-const allCharacters = [];
+const allCharacters = {
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowerCase: "abcdefghijklmnopqrstuvwxyz",
+  digits: "0123456789",
+  specials: "~!@#$%^&*()_+:|<>?",
+};
 
-// lengthOfPassword.addEventListener("input", function (event) {
-//   let generatedPassword = "";
-//   const input = lengthOfPassword.value;
+// Generating random password text after user has selected password content
+function generatePassword(characters, passwordLength) {
+  let password = "";
 
-//   while (input > generatedPassword.length) {
-//     generatedPassword +=
-//       allCharacters[Math.floor(Math.random() * allCharacters.length)];
-//   }
-
-//   password.value = generatedPassword;
-// });
-
-generatePassword.addEventListener("click", function () {
-  let generatedPassword = "";
-
-  while (length > generatedPassword.length) {
-    generatedPassword +=
-      allCharacters[Math.floor(Math.random() * allCharacters.length)];
+  while (passwordLength > password.length) {
+    const randomIndex = Math.floor(Math.random() * (characters.length - 1));
+    password += characters[randomIndex];
   }
 
-  password.value = generatedPassword;
+  return password;
+}
+
+// User's Password content
+function handleGeneratePassword() {
+  const characters = [];
 
   if (selectUppercase.checked) {
-    allCharacters.unshift(upperCase);
-    alert("checked");
-  } else if (selectlowerCase.checked) {
-    allCharacters.push(lowerCase);
-    alert("checkeds");
-  } else if (selectDigits.checked) {
-    allCharacters.push(digits);
-    alert("checke");
-  } else if (selectSpecials.checked) {
-    allCharacters.push(specials);
-    alert("checkedss");
-  } else {
-    alert("Please select an input to get an output");
+    characters.push(allCharacters.upperCase);
   }
-  console.log(generatedPassword, selectUppercase, allCharacters);
-});
+
+  if (selectlowerCase.checked) {
+    characters.push(allCharacters.lowerCase);
+  }
+
+  if (selectDigits.checked) {
+    characters.push(allCharacters.digits);
+  }
+
+  if (selectSpecials.checked) {
+    characters.push(allCharacters.specials);
+  }
+
+  if (characters.length === 0) {
+    alert("Please select an input to get an output");
+    return;
+  }
+
+  passwordInput.value = generatePassword(
+    characters.join(""),
+    // Updating the user's password length
+    lengthOfPassword.value
+  );
+}
 
 // Copy password after it has been generated.
-copyText.addEventListener("click", function () {
-  password.select();
+function copyPassword() {
+  passwordInput.select();
   document.execCommand("copy");
-});
+}
+
+function main() {
+  generatePasswordBtn.addEventListener("click", handleGeneratePassword);
+  copyTextBtn.addEventListener("click", copyPassword);
+  lengthOfPassword.addEventListener("input");
+}
+
+main();
